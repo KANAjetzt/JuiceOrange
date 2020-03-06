@@ -1,0 +1,23 @@
+{
+  "name": "orangejucy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scrape.js",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "canvas": "^2.6.1",
+    "cheerio": "^1.0.0-rc.3",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "pdfjs-dist": "^2.2.228",
+    "pug": "^2.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon -r esm src/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
