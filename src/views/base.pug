@@ -8,7 +8,8 @@ html
 
       // CONTENT
       block content
-         h1= imgs[0]
+         each img in imgs
+            img(src=`/img/${img}`)
          
 
       // FOOTER
