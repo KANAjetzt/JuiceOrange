@@ -15,18 +15,8 @@ app.use(express.static(`${__dirname}/public`));
 // Body parser, reading data from body into req.body
 app.use(express.json({ limit: "10kb" }));
 
-app.use((req, res, next) => {
-  console.log("something?");
-  fs.readdir(`${__dirname}/public/img`, (err, files) => {
-    req.body.imgs = files;
-  });
-  next();
-});
-
 app.get("/", (req, res) => {
-  console.log("something?");
   fs.readdir(`${__dirname}/public/img`, (err, files) => {
-    console.log(files);
     res.status(200).render("base", {
       imgs: files
     });
