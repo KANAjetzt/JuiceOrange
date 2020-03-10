@@ -1,8 +1,11 @@
 import fs from "fs";
 import express from "express";
+import axios from "axios";
 
 import { getOrangePage } from "./scraper";
 import { pdf2png } from "./pdf2png";
+import pdfjs from "pdfjs-dist";
+import { request } from "https";
 
 const app = express();
 
@@ -23,6 +26,20 @@ app.get("/", (req, res) => {
   });
 });
 
+// Download pdf from NORMA
+const getPDF = async () => {
+  const data = await axios({
+    url:
+      "https://www.norma-online.de/de/angebote/online-prospekt/2020-11_EDe.pdf",
+    method: "GET",
+    responseType: "stream"
+  });
+
+  data.data.pipe(
+    fs.createWriteStream(`${__dirname}/download/norma-${Date.now()}.pdf`)
+  );
+};
+
 const topng = async () => {
   const OrangePage = await getOrangePage(`${__dirname}/download/download.pdf`);
 
@@ -32,6 +49,6 @@ const topng = async () => {
   // );
 };
 
-topng();
+getPDF();
 
 export default app;
