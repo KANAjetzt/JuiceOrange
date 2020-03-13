@@ -10,7 +10,8 @@
     "esm": "^3.2.25",
     "express": "^4.17.1",
     "pdfjs-dist": "^2.2.228",
-    "pug": "^2.0.4"
+    "pug": "^2.0.4",
+    "web-push": "^3.4.3"
   },
   "devDependencies": {},
   "scripts": {
